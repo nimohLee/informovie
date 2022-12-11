@@ -22,9 +22,17 @@ const communication = {
             return err;
         }
     },
-    async getMovieList(select: movieListSelect, value: string):AxiosReturnType{
+    async getMovieList(value: string):AxiosReturnType{
         try{
-            const result= await axios.get(ApiUrl.getInstance().getMovieListUrl(select, value));
+            const result= await axios.get(ApiUrl.getInstance().getMovieListUrl(),{
+                headers : {
+                    "X-Naver-Client-Id" : process.env.REACT_APP_NAVER_CLIENT_ID,
+                    "X-Naver-Client-Secret" : process.env.REACT_APP_NAVER_SECRET
+                },
+                params:{
+                    query: value
+                }
+            });
             return result;
         }catch(error){
             const err = error as CommunicationError;

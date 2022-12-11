@@ -3,6 +3,7 @@ import { movieListSelect, companyListSelect, moviemanSelect } from '../types/lit
 
 class ApiUrl {
     private basicUrl = "http://www.kobis.or.kr/kobisopenapi/webservice/rest";
+    private naverUrl = "/api/v1/search/movie.json"
     private APIKEY = process.env.REACT_APP_API_KEY;
     private static instance:ApiUrl;
     static getInstance(){
@@ -14,11 +15,11 @@ class ApiUrl {
     getWeeklyBoxOfficeUrl():string{
         return `${this.basicUrl}/boxoffice/searchWeeklyBoxOfficeList.json?key=${this.APIKEY}&targetDt=${commons.getYesterday()}&weekGb=0`;
     }
-    getMovieListUrl(select: movieListSelect, value: string):string{
-        return `${this.basicUrl}/movie/searchMovieList.json?key=${this.APIKEY}&${select}=${value}`;
+    getMovieListUrl():string{
+        return `${this.naverUrl}`;
     }
     getMovieListByDateUrl(start: string, end: string):string{
-        return `${this.basicUrl}/movie/searchMovieList.json?key=${this.APIKEY}&openStartDt=${start}&openEndDt=${end}`;
+        return `${this.naverUrl}/movie/searchMovieList.json?key=${this.APIKEY}&openStartDt=${start}&openEndDt=${end}`;
     }
     getMovieInfoUrl(movieCode: string):string{
         return `${this.basicUrl}/movie/searchMovieInfo.json?key=${this.APIKEY}&movieCd=${movieCode}`;
