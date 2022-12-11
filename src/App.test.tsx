@@ -1,21 +1,20 @@
 import React from 'react';
 import App from './App';
-import commons from './model/commons';
-import { Communication } from './model/Communication';
+import commons from './functions/commons';
+import { communication } from './functions/communication';
 
 describe("통신 테스트",()=>{
   test("오늘 날짜 가져오기", () =>{
-    const date = commons.getToday();
+    const date = commons.getYesterday();
     console.log(date);
   })
   
   test("일별 박스오피스 가져오기", async () => {
     // given
-    const communication = new Communication("http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json");
-    const today = commons.getToday();
     // when
-    const result = await communication.getDailyBoxOffice(today);
+    const result = await communication.getDaliyBoxOffice();
     // then
+    
     expect(result.status).toBe(200);
   })
 });
