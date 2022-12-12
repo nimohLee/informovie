@@ -3,18 +3,27 @@ import React from 'react'
 import { useState } from 'react';
 import commons from '../functions/commons';
 
+type searchOptionType = "openDt" | "title" | "people";
+
 const SearchForm = () => {
-  const [searchOption, setSearchOption] = useState(false);
+  const [searchOption, setSearchOption] = useState<searchOptionType>();
   const currentYear = commons.getCurrentYear();
   let startYear = 1960;
   const startSelectYears = Array.from(new Array(60),( val, index) => currentYear - index); 
   const [endYears,setEndYears] = useState<Array<number>>(Array.from(new Array(60),( val, index) => currentYear - index)); 
- 
+
   const handleSearchSelect = (e:React.ChangeEvent<HTMLSelectElement>):void => {
-    if(e.target.value === "openDt")
-      setSearchOption(true);
-    else
-      setSearchOption(false);
+    switch(e.target.value){
+      case "title":
+        setSearchOption("title");
+        break;
+      case "people":
+        setSearchOption("people");  
+        break;
+      case "openDt":
+        setSearchOption("openDt");  
+        break;
+    }
   }
 
   const handleYearSelect = (e:React.ChangeEvent<HTMLSelectElement>):void =>{
@@ -25,11 +34,11 @@ const SearchForm = () => {
 
   return (
     <article>
-      <form action="">
+      <form action="/search">
       <div>
         <div>
             <label htmlFor="value"></label>
-            <select name="search-option" id="search-option" onChange={handleSearchSelect}>
+            <select name="searchOption" id="search-option" onChange={handleSearchSelect}>
               <option value="title">
                 제목
               </option>
@@ -42,10 +51,10 @@ const SearchForm = () => {
             </select>
           </div>
           {
-            searchOption
+            searchOption === "openDt"
             ?
             <div>
-            <select name="" id="" onChange={handleYearSelect}>
+            <select name="startYear" id="" onChange={handleYearSelect}>
             {
             startSelectYears.map((year, index)=>{
               return(
@@ -54,7 +63,7 @@ const SearchForm = () => {
             })
             }
             </select>
-            <select name="" id="">
+            <select name="endYear" id="">
             {
             endYears.map((year, index)=>{
               return(
@@ -66,9 +75,10 @@ const SearchForm = () => {
             </div>
             :<div>
               <label htmlFor="value"></label>
-              <input type="text" id="value" placeholder=''/>
+              <input type="text" name="searchValue" id="value" placeholder=''/>
             </div>
           }
+          <input type="submit" value="검색" />
       </div>
       </form>
     </article>
