@@ -47,7 +47,7 @@ test("영화사 목록 가져오기", async () => {
   test("영화인 목록 검색해서 가져오기", async () => {
     // given
     // when
-    const result = await communication.getMovieManList("peopleNm","22221032");
+    const result = await communication.getMovieManList("마동석");
     // then
     expect(result.status).toBe(200);
   });

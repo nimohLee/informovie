@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react';
 import commons from '../functions/commons';
 
-type searchOptionType = "openDt" | "title" | "people";
+type searchOptionType = "openDt" | "title" | "people" | "company";
 
 const SearchForm = () => {
   const [searchOption, setSearchOption] = useState<searchOptionType>();
@@ -13,17 +13,8 @@ const SearchForm = () => {
   const [endYears,setEndYears] = useState<Array<number>>(Array.from(new Array(60),( val, index) => currentYear - index)); 
 
   const handleSearchSelect = (e:React.ChangeEvent<HTMLSelectElement>):void => {
-    switch(e.target.value){
-      case "title":
-        setSearchOption("title");
-        break;
-      case "people":
-        setSearchOption("people");  
-        break;
-      case "openDt":
-        setSearchOption("openDt");  
-        break;
-    }
+    const searchValue = e.target.value as searchOptionType;
+    setSearchOption(searchValue);
   }
 
   const handleYearSelect = (e:React.ChangeEvent<HTMLSelectElement>):void =>{
@@ -44,6 +35,9 @@ const SearchForm = () => {
               </option>
               <option value="people">
                 영화인
+              </option>
+              <option value="company">
+                영화사
               </option>
               <option value="openDt">
                 개봉연도

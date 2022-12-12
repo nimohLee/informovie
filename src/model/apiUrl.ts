@@ -30,8 +30,8 @@ class ApiUrl {
     getCompanyInfoUrl(companyCode: string):string{
         return `${this.basicUrl}/company/searchCompanyInfo.json?key=${this.APIKEY}&companyCd=${companyCode}`;
     }
-    getMovieManListUrl(select: moviemanSelect, value: string):string{
-        return `${this.basicUrl}/people/searchPeopleList.json?key=${this.APIKEY}&${select}=${value}`;
+    getMovieManListUrl(value: string):string{
+        return `${this.basicUrl}/people/searchPeopleList.json?key=${this.APIKEY}&peopleNm=${value}`;
     }
     getMovieManInfoUrl(manCode: string):string{
         return `${this.basicUrl}/people/searchPeopleInfo.json?key=${this.APIKEY}&peopleCd=${manCode}`;

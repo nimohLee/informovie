@@ -36,6 +36,17 @@ interface WeeklyBoxOfficeType {
     };
 }
 
+type MovieListItems = [
+    { actor: string;
+        director: string;
+        image: string;
+        link: string;
+        pubDate: string;
+        subtitle: string;
+        title: string;
+        userRating: string;}
+];
+
 interface MovieListResult {
     items: [{
             actor: string;
@@ -88,7 +99,7 @@ interface MovieInfoResult {
     };
 }
 
-interface ComponyListResult {
+interface CompanyListResult {
     companyListResult: {
         companyList: [
             {
@@ -103,7 +114,7 @@ interface ComponyListResult {
     };
 }
 
-interface ComponyInfoResult {
+interface CompanyInfoResult {
     companyInfoResult: {
         companyInfo: {
             ceoNm: string;
@@ -146,4 +157,4 @@ interface PeopleInfoResult {
     };
 }
 
-export { DailyBoxOfficeType, WeeklyBoxOfficeType, MovieListResult, MovieInfoResult, ComponyListResult, ComponyInfoResult, PeopleListResult, PeopleInfoResult};
+export { DailyBoxOfficeType, WeeklyBoxOfficeType, MovieListResult, MovieListItems, MovieInfoResult, CompanyListResult, CompanyInfoResult, PeopleListResult, PeopleInfoResult};

@@ -10,7 +10,7 @@ const communication = {
     async getWeeklyBoxOffice():AxiosReturnType{      
             return await axios.get(ApiUrl.getInstance().getWeeklyBoxOfficeUrl());
     },
-    async getMovieList(value: string):AxiosReturnType{
+    async getMovieList(value: string, page: number):AxiosReturnType{
            const result = await axios.get(ApiUrl.getInstance().getMovieListUrl(),
            {
                 headers : {
@@ -18,7 +18,9 @@ const communication = {
                     "X-Naver-Client-Secret" : process.env.REACT_APP_NAVER_SECRET
                 },
                 params:{
-                    query: value
+                    query: value,
+                    display: 10,
+                    start: page
                 }
             });
             return result;
@@ -35,8 +37,8 @@ const communication = {
     async getCompanyInfo(companyCode: string):AxiosReturnType{
             return await axios.get(ApiUrl.getInstance().getCompanyInfoUrl(companyCode));
     },
-    async getMovieManList(select: moviemanSelect, value: string):AxiosReturnType{
-            return await axios.get(ApiUrl.getInstance().getMovieManListUrl(select, value));
+    async getMovieManList(value: string):AxiosReturnType{
+            return await axios.get(ApiUrl.getInstance().getMovieManListUrl(value));
     },
     async getMovieManInfo(manCode: string):AxiosReturnType{
             return await axios.get(ApiUrl.getInstance().getMovieManInfoUrl(manCode));

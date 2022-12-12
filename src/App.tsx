@@ -6,14 +6,14 @@ import {
 } from "react-router-dom";
 import './App.css';
 import Home from './components/Home';
-import SearchList from './components/SearchList';
+import SearchWrap from './components/search/SearchWrap';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='search/' element={<SearchList/>}/>
+        <Route path='search/' element={<SearchWrap/>}/>
       </Routes>
     </BrowserRouter>
   );
