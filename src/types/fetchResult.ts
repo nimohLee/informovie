@@ -37,25 +37,17 @@ interface WeeklyBoxOfficeType {
 }
 
 interface MovieListResult {
-    movieListResult: {
-        movieList: [{
-            movieCd: string;
-            movieNm: string;
-            movieNmEn: string;
-            prdtYear: string;
-            openDt: string;
-            typeNm: string;
-            nationAlt: string;
-            genreAlt: string;
-            repNationNm: string;
-            repGenreNm: string;
-            directors: string;
-            peopleNm: string;
-            companys: string;
-            companyCd: string;
-            companyNm: string;
+    items: [{
+            actor: string;
+            director: string;
+            image: string;
+            link: string;
+            pubDate: string;
+            subtitle: string;
+            title: string;
+            userRating: string;
         }];
-    };
+    
 }
 
 interface MovieInfoResult {

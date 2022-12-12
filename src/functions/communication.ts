@@ -4,27 +4,15 @@ import { movieListSelect, companyListSelect, moviemanSelect } from '../types/lit
 import { CommunicationError, AxiosReturnType } from '../types/axiosType';
 
 const communication = {
-    async getDaliyBoxOffice():AxiosReturnType{
-        try{
-            const result= await axios.get(ApiUrl.getInstance().getDailyBoxOfficeUrl());
-            return result;
-        }catch(error){
-            const err = error as CommunicationError;
-            return err;
-        }
+    async getDaliyBoxOffice():AxiosReturnType{        
+            return await axios.get(ApiUrl.getInstance().getDailyBoxOfficeUrl());
     },
-    async getWeeklyBoxOffice():AxiosReturnType{
-        try{
-            const result= await axios.get(ApiUrl.getInstance().getWeeklyBoxOfficeUrl());
-            return result;
-        }catch(error){
-            const err = error as CommunicationError;
-            return err;
-        }
+    async getWeeklyBoxOffice():AxiosReturnType{      
+            return await axios.get(ApiUrl.getInstance().getWeeklyBoxOfficeUrl());
     },
     async getMovieList(value: string):AxiosReturnType{
-        try{
-            const result= await axios.get(ApiUrl.getInstance().getMovieListUrl(),{
+           const result = await axios.get(ApiUrl.getInstance().getMovieListUrl(),
+           {
                 headers : {
                     "X-Naver-Client-Id" : process.env.REACT_APP_NAVER_CLIENT_ID,
                     "X-Naver-Client-Secret" : process.env.REACT_APP_NAVER_SECRET
@@ -34,64 +22,24 @@ const communication = {
                 }
             });
             return result;
-        }catch(error){
-            const err = error as CommunicationError;
-            return err;
-        }
     },
     async getMovieListByDate(start: string, end: string):AxiosReturnType{
-        try{
-            const result= await axios.get(ApiUrl.getInstance().getMovieListByDateUrl(start, end));
-            return result;
-        }catch(error){
-            const err = error as CommunicationError;
-            return err;
-        }
+           return await axios.get(ApiUrl.getInstance().getMovieListByDateUrl(start, end));
     },
     async getMovieInfo(movieCode: string):AxiosReturnType{
-        try{
-            const result= await axios.get(ApiUrl.getInstance().getMovieInfoUrl(movieCode));
-            return result;
-        }catch(error){
-            const err = error as CommunicationError;
-            return err;
-        }
+            return await axios.get(ApiUrl.getInstance().getMovieInfoUrl(movieCode));
     },
-    async getCompanyList(select: companyListSelect, value: string):AxiosReturnType{
-        try{
-            const result= await axios.get(ApiUrl.getInstance().getCompanyListUrl(select, value));
-            return result;
-        }catch(error){
-            const err = error as CommunicationError;
-            return err;
-        }
+    async getCompanyList(value: string):AxiosReturnType{
+            return await axios.get(ApiUrl.getInstance().getCompanyListUrl(value));
     },
     async getCompanyInfo(companyCode: string):AxiosReturnType{
-        try{
-            const result= await axios.get(ApiUrl.getInstance().getCompanyInfoUrl(companyCode));
-            return result;
-        }catch(error){
-            const err = error as CommunicationError;
-            return err;
-        }
+            return await axios.get(ApiUrl.getInstance().getCompanyInfoUrl(companyCode));
     },
     async getMovieManList(select: moviemanSelect, value: string):AxiosReturnType{
-        try{
-            const result= await axios.get(ApiUrl.getInstance().getMovieManListUrl(select, value));
-            return result;
-        }catch(error){
-            const err = error as CommunicationError;
-            return err;
-        }
+            return await axios.get(ApiUrl.getInstance().getMovieManListUrl(select, value));
     },
     async getMovieManInfo(manCode: string):AxiosReturnType{
-        try{
-            const result= await axios.get(ApiUrl.getInstance().getMovieManInfoUrl(manCode));
-            return result;
-        }catch(error){
-            const err = error as CommunicationError;
-            return err;
-        }
+            return await axios.get(ApiUrl.getInstance().getMovieManInfoUrl(manCode));
     }
 
 }
