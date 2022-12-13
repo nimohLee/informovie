@@ -3,6 +3,10 @@ import React from "react";
 import { WeeklyBoxOfficeType } from "../types/fetchResult";
 
 const WeeklyBoxOffice: React.FC<WeeklyBoxOfficeType> = (movies) => {
+    
+    setTimeout(()=>{
+        console.log(movies);
+    },2000)
     return (
         <div>
             {movies &&

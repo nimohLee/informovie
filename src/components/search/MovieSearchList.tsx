@@ -3,7 +3,7 @@ import React, { useEffect, useCallback, useState } from "react";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 import { communication } from "../../functions/communication";
-import { MovieListResult, MovieListItems } from "../../types/fetchResult";
+import { MovieListItems } from "../../types/fetchResult";
 import { QueryStringValues } from "../../types/searchType";
 import { useInView } from "react-intersection-observer"
 
@@ -40,12 +40,11 @@ const MovieSearchList = () => {
             const result = await communication.getMovieList(parsed.searchValue, page);
             if(result.data.items.length<10){
                 setIsDone(true);
-            }else{
-                bindResult(result,()=>{
-                    setLoading(false);    
-                })
             }
-           
+            if(!isDone)    
+            bindResult(result,()=>{
+                    setLoading(false);    
+                });
         }catch(err){
             console.error(err);
             alert("통신에 문제가 발생하였습니다. 잠시 후에 다시 시도해주세요.")

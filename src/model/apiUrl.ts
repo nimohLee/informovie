@@ -13,7 +13,7 @@ class ApiUrl {
         return `${this.basicUrl}/boxoffice/searchDailyBoxOfficeList.json?key=${this.APIKEY}&targetDt=${commons.getYesterday()}`;
     }
     getWeeklyBoxOfficeUrl():string{
-        return `${this.basicUrl}/boxoffice/searchWeeklyBoxOfficeList.json?key=${this.APIKEY}&targetDt=${commons.getYesterday()}&weekGb=0`;
+        return `${this.basicUrl}/boxoffice/searchWeeklyBoxOfficeList.json?key=${this.APIKEY}&targetDt=${commons.getLastWeek()}&weekGb=0`;
     }
     getMovieListUrl():string{
         return `${this.naverUrl}`;

@@ -12,7 +12,16 @@ describe("통신 테스트",()=>{
     expect(result.status).toBe(200);
   });
 
-  test("월별 박스오피스 가져오기", async () => {
+  test("지난 주 값 가져오기", async () => {
+    // given
+    // when
+    const result = commons.getLastWeek();
+    console.log(result);
+    // then
+    // expect(result.status).toBe(200);
+  });
+
+  test("주별 박스오피스 가져오기", async () => {
     // given
     // when
     const result = await communication.getWeeklyBoxOffice();
