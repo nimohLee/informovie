@@ -6,6 +6,7 @@ import DailyBoxOffice from "./DailyBoxOffice";
 import WeeklyBoxOffice from "./WeeklyBoxOffice";
 import { DailyBoxOfficeType, WeeklyBoxOfficeType } from "../types/fetchResult";
 import { communication } from '../functions/communication';
+import '../css/bootStrap.css';
 
 function BoxOfficeWrap() {
     const [dailyBoxOffice, setDailyBoxOffice] = useState<DailyBoxOfficeType>(
@@ -41,8 +42,8 @@ function BoxOfficeWrap() {
     }, []);
 
     return (
-        <div>
-            <h3>Box Office</h3>
+        <div className='fixed right-0 bg-black text-white w-64 pt-4 overflow-scroll h-full'>
+            <h3 className='text-center'>Box Office</h3>
             <Tabs defaultActiveKey="daily" id="boxoffice-tab" fill>
                 <Tab eventKey="daily" title="일일">
                     <DailyBoxOffice {...dailyBoxOffice} />

@@ -10,12 +10,14 @@ import SearchWrap from './components/search/SearchWrap';
 
 const App = () => {
   return (
+    <div className='bg-black '>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='search/' element={<SearchWrap/>}/>
       </Routes>
     </BrowserRouter>
+    </div>
   );
 }
 

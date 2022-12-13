@@ -24,12 +24,12 @@ const SearchForm = () => {
   }
 
   return (
-    <article>
-      <form action="/search">
+    <article className=''>
+      <form action="/search" >
       <div>
-        <div>
+        <div className='flex -translate-x-5'>
             <label htmlFor="value"></label>
-            <select name="searchOption" id="search-option" onChange={handleSearchSelect}>
+            <select className='p-2' name="searchOption" id="search-option" onChange={handleSearchSelect}>
               <option value="title">
                 제목
               </option>
@@ -43,7 +43,7 @@ const SearchForm = () => {
                 개봉연도
               </option>
             </select>
-          </div>
+          
           {
             searchOption === "openDt"
             ?
@@ -67,12 +67,14 @@ const SearchForm = () => {
             }
             </select>
             </div>
-            :<div>
+            :<div className='bg-white'>
               <label htmlFor="value"></label>
-              <input type="text" name="searchValue" id="value" placeholder=''/>
+              <input type="text" className="py-2 pl-2 pr-20 " name="searchValue" id="value" placeholder=''/>
             </div>
           }
-          <input type="submit" value="검색" />
+          <input type="submit" value="검색" className='bg-red-500 px-8 text-center text-white'/>
+          
+      </div>
       </div>
       </form>
     </article>

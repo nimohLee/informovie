@@ -6,7 +6,7 @@ import { communication } from "../../functions/communication";
 import { MovieListItems } from "../../types/fetchResult";
 import { QueryStringValues } from "../../types/searchType";
 import { useInView } from "react-intersection-observer"
-
+import commons from '../../functions/commons';
 
 
 const MovieSearchList = () => {
@@ -27,6 +27,7 @@ const MovieSearchList = () => {
     const [ref, inView] = useInView();
 
     const parsed = queryString.parse(location.search) as QueryStringValues;
+    
     const bindResult = (result:any,callback:any) =>{
         const data = result.data.items as MovieListItems;
         const copy = [...searchResult,...data];
@@ -61,6 +62,7 @@ const MovieSearchList = () => {
         }
     },[inView, loading]);
 
+    
     return (
         <div>
             
@@ -71,9 +73,8 @@ const MovieSearchList = () => {
                         <img src={movie?.image}></img>
                         {/* 영화 제목이 <b> </b> 태그로 감싸져 있어 정규표현식 사용하여 공백으로 치환 */}
                         <h3>{movie?.title?.replace(/<\/?b>/g,"")}</h3>
-                        {/* 배우들 이름이 |로 구분되어 있어 |를 공백으로 치환 */}
-                        <h4>{movie.actor?.replace(/\|/g," ")}</h4>
-                        <h4>{movie.director?.replace(/\|/g," ")}</h4>
+                        <h4>{commons.removeVerticalBar(movie?.actor)}</h4>
+                        <h4>{commons.removeVerticalBar(movie?.director)}</h4>
                         <h5>{movie?.userRating}</h5>
                     </div>
                 );

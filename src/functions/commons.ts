@@ -21,7 +21,9 @@ const commons = {
     },
     stringToNumberFormat(convert: string|number){
         return new Intl.NumberFormat().format(+convert);
+    },
+    removeVerticalBar(originalString:string,replaceChar?:string){
+        return originalString.replace(/\|/g,replaceChar||" ");
     }
 }
-
 export default commons;
