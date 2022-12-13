@@ -7,6 +7,7 @@ interface DailyBoxOfficeType {
             openDt: string;
             audiCnt: string;
             audiChange: string;
+            audiInten: string;
             audiAcc: string;
             boxofficeType: string;
             rank: string;

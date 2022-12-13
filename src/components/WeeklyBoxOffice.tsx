@@ -1,12 +1,8 @@
 "use strict";
 import React from "react";
 import { WeeklyBoxOfficeType } from "../types/fetchResult";
-
+import commons from '../functions/commons';
 const WeeklyBoxOffice: React.FC<WeeklyBoxOfficeType> = (movies) => {
-    
-    setTimeout(()=>{
-        console.log(movies);
-    },2000)
     return (
         <div>
             {movies &&
@@ -14,7 +10,9 @@ const WeeklyBoxOffice: React.FC<WeeklyBoxOfficeType> = (movies) => {
                     return (
                         <div key={movie.rnum}>
                             <h5>{movie.rank}</h5>
-                            <h6>{movie.movieNm}</h6>
+                            <h5>{movie.movieNm}</h5>
+                            <h6>{movie.openDt}</h6>
+                            <h6>누적 관객 {commons.stringToNumberFormat(movie.audiAcc)}명</h6>
                         </div>
                     );
                 })}

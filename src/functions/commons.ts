@@ -18,6 +18,9 @@ const commons = {
     },
     getCurrentYear(){
         return new Date().getFullYear();
+    },
+    stringToNumberFormat(convert: string|number){
+        return new Intl.NumberFormat().format(+convert);
     }
 }
 
