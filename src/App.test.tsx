@@ -68,9 +68,4 @@ test("영화사 목록 가져오기", async () => {
     // then
     expect(result.status).toBe(200);
   });
-  
-  // test("영화 검색", async ()=>{
-  //   const result = await communication.getMovieList("범죄도시");
-  //   console.log(result);
-  // })
 });

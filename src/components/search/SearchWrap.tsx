@@ -26,8 +26,7 @@ const SearchWrap = () => {
                 <div className='text-white text-5xl mt-5 mb-20 ml-10'>검색결과</div>
                 <div className='absolute top-24 md:top-32 right-36 md:mr-20 lg:right-96'>
                 <SearchForm/>
-                </div>
-                
+                </div>       
           </div>
     {
       searchOption === "title"?

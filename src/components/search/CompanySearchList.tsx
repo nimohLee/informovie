@@ -15,9 +15,13 @@ const CompanySearchList = () => {
     );
     const [isFilmoOn, setIsFilmoOn] = useState<string>("");
     const fetchData = async () => {
-        const result = await communication.getCompanyList(parsed.searchValue);
-        console.log(result);
-        setSearchResult({ ...searchResult, ...result.data });
+        try{
+            const result = await communication.getCompanyList(parsed.searchValue);
+            setSearchResult({ ...searchResult, ...result.data });
+        }catch(err){
+            console.error(err);
+            alert("통신에 문제가 발생했습니다. 잠시 후에 다시 시도해주세요.")
+        }
     };
 
     useEffect(() => {
