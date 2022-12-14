@@ -72,7 +72,7 @@ const SearchForm = () => {
               <input type="text" className="py-3 pl-2 pr-20 focus:outline-0 " name="searchValue" id="value" placeholder='검색어를 입력하세요' required/>
             </div>
           }
-          <input type="submit" value="검색" className='bg-red-500 px-8 text-center text-white '/>
+          <input type="submit" value="검색" className='bg-red-500 px-8 text-center text-white hover:bg-red-400 hover:duration-75'/>
           
       </div>
       </div>

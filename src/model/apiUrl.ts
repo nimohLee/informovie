@@ -1,5 +1,4 @@
 import commons from '../functions/commons';
-import { movieListSelect, companyListSelect, moviemanSelect } from '../types/literal';
 
 class ApiUrl {
     private basicUrl = "http://www.kobis.or.kr/kobisopenapi/webservice/rest";
@@ -10,10 +9,10 @@ class ApiUrl {
         return this.instance || (this.instance = new this());
     }
     getDailyBoxOfficeUrl():string{
-        return `${this.basicUrl}/boxoffice/searchDailyBoxOfficeList.json?key=${this.APIKEY}&targetDt=${commons.getYesterday()}`;
+        return `${this.basicUrl}/boxoffice/searchDailyBoxOfficeList.json?key=${this.APIKEY}&targetDt=${commons.getDate("yesterDay")}`;
     }
     getWeeklyBoxOfficeUrl():string{
-        return `${this.basicUrl}/boxoffice/searchWeeklyBoxOfficeList.json?key=${this.APIKEY}&targetDt=${commons.getLastWeek()}&weekGb=0`;
+        return `${this.basicUrl}/boxoffice/searchWeeklyBoxOfficeList.json?key=${this.APIKEY}&targetDt=${commons.getDate("lastWeek")}&weekGb=0`;
     }
     getMovieListUrl():string{
         return `${this.naverUrl}`;

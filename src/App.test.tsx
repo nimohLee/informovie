@@ -12,13 +12,13 @@ describe("통신 테스트",()=>{
     expect(result.status).toBe(200);
   });
 
-  test("지난 주 값 가져오기", async () => {
+  test("오늘 값 가져오기", async () => {
     // given
     // when
-    const result = commons.getLastWeek();
+    const result = commons.getDate("yesterDay");
     console.log(result);
     // then
-    // expect(result.status).toBe(200);
+    expect(result).toBe("20221213");
   });
 
   test("주별 박스오피스 가져오기", async () => {
