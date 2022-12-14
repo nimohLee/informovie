@@ -1,8 +1,8 @@
 "use strict";
 import React from "react";
-import { DailyBoxOfficeType } from "../types/fetchResult";
+import { DailyBoxOfficeType } from "../../types/fetchResult";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Icons from '../model/Icons';
+import Icons from '../../model/Icons';
 const DailyBoxOffice: React.FC<DailyBoxOfficeType> = (movies) => {
     const icons = new Icons();
     return (
@@ -20,8 +20,12 @@ const DailyBoxOffice: React.FC<DailyBoxOfficeType> = (movies) => {
                                     <FontAwesomeIcon icon={icons.arrowBarIcon} className="text-white"/>:
                                     (
                                         parseInt(movie.rankInten) > 0 ?
-                                    <div className='flex items-center'><FontAwesomeIcon icon={icons.arrowUpIcon} className="text-red-500 text-2xl"/>{movie.rankInten}</div> :
-                                    <div className='flex flex items-center'><FontAwesomeIcon icon={icons.arrowDownIcon} className="text-blue-500 text-2xl"/>{movie.rankInten}</div>
+                                    <div className='flex items-center'><FontAwesomeIcon icon={icons.arrowUpIcon} className="text-red-500 text-2xl"/>
+                                    <span className='ml-2'>{movie.rankInten}</span>
+                                    </div> :
+                                    <div className='flex flex items-center'><FontAwesomeIcon icon={icons.arrowDownIcon} className="text-blue-500 text-2xl"/>
+                                    <span className='ml-2'>{movie.rankInten}</span>
+                                    </div>
                                     )
                                 }
                                 </div>

@@ -1,7 +1,7 @@
 "use strict";
 import React from 'react'
 import { useState } from 'react';
-import commons from '../functions/commons';
+import commons from '../../functions/commons';
 
 type searchOptionType = "openDt" | "title" | "people" | "company";
 

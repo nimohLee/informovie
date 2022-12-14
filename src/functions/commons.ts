@@ -27,7 +27,11 @@ const commons = {
         return new Intl.NumberFormat().format(+convert);
     },
     removeVerticalBar(originalString:string,replaceChar?:string){
-        return originalString.replace(/\|/g,replaceChar||" ");
+        const result = originalString.replace(/\|/g,replaceChar||"");
+        return result.slice(0, originalString.length - 1);
+    },
+    getStarRatio(average:string){
+        return Math.floor(+average / 2);
     }
 }
 export default commons;
