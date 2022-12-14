@@ -2,12 +2,11 @@ import React from 'react';
 import {
   BrowserRouter,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import './App.css';
 import Home from './components/Home';
-import logo from "./assets/Inform_logo_small.png";
+import logo from "./assets/images/Inform_logo_small.png";
 import SearchWrap from './components/search/SearchWrap';
 
 const App = () => {

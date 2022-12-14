@@ -8,7 +8,6 @@ import { QueryStringValues } from "../../types/searchType";
 import { useInView } from "react-intersection-observer"
 import commons from '../../functions/commons';
 import "../../css/star.css"
-import SearchForm from './SearchForm';
 
 const MovieSearchList = () => {
     const [searchResult, setSearchResult] = useState([{
@@ -26,7 +25,6 @@ const MovieSearchList = () => {
     const [isDone, setIsDone] = useState(false);
     const [ref, inView] = useInView();
     const parsed = queryString.parse(location.search) as QueryStringValues;
-    const [isResultExist, setIsResultExist] = useState(false);
     const bindResult = (result:any) =>{
         const data = result.data.items as MovieListItems;
         const copy = [...searchResult];
@@ -45,9 +43,9 @@ const MovieSearchList = () => {
             const result = await communication.getMovieList(parsed.searchValue, page);
         
             if(result.data.items.length===0)
-                setIsResultExist(false);
+                
             if(result.data.items.length<10){
-                setIsResultExist(true);
+                
                 setIsDone(true);
             }
             if(!isDone) 

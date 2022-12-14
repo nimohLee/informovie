@@ -7,7 +7,6 @@ import { communication } from "../../functions/communication";
 import { PeopleListResult} from "../../types/fetchResult";
 import { QueryStringValues } from "../../types/searchType";
 import commons from '../../functions/commons';
-import SearchForm from './SearchForm';
 
 const PeopleSearchList = () => {
     const location = useLocation();

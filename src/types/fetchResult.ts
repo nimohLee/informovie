@@ -16,7 +16,6 @@ interface DailyBoxOfficeType {
         }];
     };
 }
-
 interface WeeklyBoxOfficeType {
     boxOfficeResult: {
         weeklyBoxOfficeList: Array<{
@@ -47,20 +46,6 @@ type MovieListItems = [
         title: string;
         userRating: string;}
 ];
-
-interface MovieListResult {
-    items: [{
-            actor: string;
-            director: string;
-            image: string;
-            link: string;
-            pubDate: string;
-            subtitle: string;
-            title: string;
-            userRating: string;
-        }];
-    
-}
 
 interface MovieInfoResult {
     movieInfoResult: {
@@ -158,4 +143,4 @@ interface PeopleInfoResult {
     };
 }
 
-export { DailyBoxOfficeType, WeeklyBoxOfficeType, MovieListResult, MovieListItems, MovieInfoResult, CompanyListResult, CompanyInfoResult, PeopleListResult, PeopleInfoResult};
+export { DailyBoxOfficeType, WeeklyBoxOfficeType, MovieListItems, MovieInfoResult, CompanyListResult, CompanyInfoResult, PeopleListResult, PeopleInfoResult};

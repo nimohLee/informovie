@@ -11,7 +11,6 @@ import SearchForm from './SearchForm';
 
 const SearchWrap = () => {
   const location = useLocation();
-  
   const [searchOption, setSearchOption] = useState<searchOption>();
   const parsed = queryString.parse(location.search) as QueryStringValues;
   const setOptionInState = () =>{

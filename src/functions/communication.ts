@@ -1,7 +1,6 @@
 import ApiUrl from '../model/ApiUrl';
 import axios from 'axios';
-import { movieListSelect, companyListSelect, moviemanSelect } from '../types/literal';
-import { CommunicationError, AxiosReturnType } from '../types/axiosType';
+import { AxiosReturnType } from '../types/axiosType';
 
 const communication = {
     async getDaliyBoxOffice():AxiosReturnType{        

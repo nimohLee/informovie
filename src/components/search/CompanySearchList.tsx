@@ -6,7 +6,6 @@ import { communication } from "../../functions/communication";
 import { CompanyListResult } from "../../types/fetchResult";
 import { QueryStringValues } from "../../types/searchType";
 import { Card } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 
 const CompanySearchList = () => {
     const location = useLocation();
@@ -35,7 +34,7 @@ const CompanySearchList = () => {
             <div className='h-full' style={{backgroundColor: "rgba( 255, 255, 255, 0.5)"}}>
                 {searchResult &&
                     searchResult?.companyListResult?.companyList?.map(
-                        (company, key) => {
+                        (company) => {
                             return (
                                 <Card
                                     style={{ width: "1005" }}

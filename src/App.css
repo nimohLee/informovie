@@ -1,10 +1,18 @@
+@font-face {
+    font-family: "Gmarket";
+    src: url("./assets/fonts/GmarketSansTTFMedium.woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
 html{
     background-color: black;
     
 }
 body{
-    background-image: url("./assets/bg.webp");
+    background-image: url("./assets/images/bg.webp");
     height: 100vh;
+    font-family: 'Gmarket' !important;
     background-size:cover;
     background-attachment: fixed;
 }

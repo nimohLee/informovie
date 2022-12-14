@@ -1,6 +1,6 @@
 import React from "react";
 import SearchForm from "./search/SearchForm";
-import logo from "../assets/inform_logo.png";
+import logo from "../assets/images/inform_logo.png";
 import BoxOfficeWrap from './boxOffice/BoxOfficeWrap';
 
 const Home = () => {
@@ -17,5 +17,4 @@ const Home = () => {
         
     );
 };
-
 export default Home;
