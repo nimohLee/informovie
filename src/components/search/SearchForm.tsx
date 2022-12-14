@@ -27,7 +27,7 @@ const SearchForm = () => {
     <article className='absolute left-0'>
       <form action="/search" >
       
-        <div className='flex flex-col md:flex-row -translate-x-32 md:-translate-x-5 absolute left-0 '>
+        <div className='flex flex-col md:flex-row -translate-x-32 md:-translate-x-44 lg:-translate-x-5 absolute left-0 '>
             <label htmlFor="value"></label>
             <select className='p-2 border border-b' name="searchOption" id="search-option" onChange={handleSearchSelect}>
               <option value="title">

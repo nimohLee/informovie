@@ -13,6 +13,7 @@ const PeopleSearchList = () => {
     const location = useLocation();
     const parsed = queryString.parse(location.search) as QueryStringValues;
     const [searchResult, setSearchResult] = useState<PeopleListResult>({} as PeopleListResult);
+    const [isLoading, setIsLoading] = useState(false);
     const [isFilmoOn, setIsFilmoOn] = useState<string>("");
     const fetchData = async () => {
         try{
@@ -25,7 +26,9 @@ const PeopleSearchList = () => {
     };
 
     useEffect(() => {
+        setIsLoading(true);
        fetchData();
+       setIsLoading(false);
     }, []);
     
     const showFilmo = (personCd:string) =>{
@@ -34,17 +37,14 @@ const PeopleSearchList = () => {
         else setIsFilmoOn(personCd);
     }
     return (
-        <div className='h-screen'>
-            <div className='border-b pb-5  flex justify-center flex-col items-center mt-20'>
-                <SearchForm/>
-                <div className='text-white text-5xl mt-5 mb-4'>검색결과</div>
-            </div>
+        <div className=''>
             <div className='h-full' style={{backgroundColor: "rgba( 255, 255, 255, 0.5)"}}>
             {
-                searchResult && 
+                !isLoading
+                ? 
                     searchResult?.peopleListResult?.peopleList.map((person, index)=>{
                         return (
-                            <Card style={{ width: '100%' }} key={person.peopleCd}>
+                            <Card style={{ width: '100%',margin:"0 auto", paddingLeft:'40px' }} key={person.peopleCd}>
                                  <Card.Body>
                                     <Card.Title>{person.peopleNm} { person.peopleNmEn&&`(${person?.peopleNmEn})`}</Card.Title>
                                 <Card.Subtitle className="mb-2 text-muted">{person.repRoleNm}</Card.Subtitle>
@@ -57,6 +57,7 @@ const PeopleSearchList = () => {
                           </Card>
                         )
                     })
+                    :<h2>Loading...</h2>
             }
             </div>
         </div>

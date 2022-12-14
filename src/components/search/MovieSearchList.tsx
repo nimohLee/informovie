@@ -43,7 +43,7 @@ const MovieSearchList = () => {
         setLoading(true);
         try{
             const result = await communication.getMovieList(parsed.searchValue, page);
-            console.log(result.data.items.length);
+        
             if(result.data.items.length===0)
                 setIsResultExist(false);
             if(result.data.items.length<10){
@@ -59,7 +59,8 @@ const MovieSearchList = () => {
     },[page])
     
     useEffect(() => {
-            fetchData();
+    
+        fetchData();
     }, [fetchData]);
 
     useEffect(()=>{
@@ -75,10 +76,6 @@ const MovieSearchList = () => {
 
     return (
         <div>
-            <div className='border-b pb-5  flex justify-center flex-col items-center mt-32'>
-                <SearchForm/>
-                <div className='text-white text-5xl mt-5 mb-4'>검색결과</div>
-            </div>
             <div className='overflow-y-scroll flex flex-wrap justify-evenly'>
             {
                 searchResult[0]?.actor!==""&&searchResult?.map((movie, index) => {
@@ -108,7 +105,7 @@ const MovieSearchList = () => {
             }
                 {
                     isDone?
-                    <div className='text-white'>마지막 영화입니다.</div>
+                    <div className='text-white absolute bottom-10'>마지막 영화입니다.</div>
                     :
                     <div ref={ref}>...loading</div>
                 }
