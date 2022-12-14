@@ -25,9 +25,8 @@ const MovieSearchList = () => {
     const [loading, setLoading] = useState(false);
     const [isDone, setIsDone] = useState(false);
     const [ref, inView] = useInView();
-
     const parsed = queryString.parse(location.search) as QueryStringValues;
-    
+    const [isResultExist, setIsResultExist] = useState(false);
     const bindResult = (result:any) =>{
         const data = result.data.items as MovieListItems;
         const copy = [...searchResult];
@@ -44,11 +43,15 @@ const MovieSearchList = () => {
         setLoading(true);
         try{
             const result = await communication.getMovieList(parsed.searchValue, page);
+            console.log(result.data.items.length);
+            if(result.data.items.length===0)
+                setIsResultExist(false);
             if(result.data.items.length<10){
+                setIsResultExist(true);
                 setIsDone(true);
             }
-            if(!isDone)    
-            bindResult(result);
+            if(!isDone) 
+                bindResult(result);
         }catch(err){
             console.error(err);
             alert("통신에 문제가 발생하였습니다. 잠시 후에 다시 시도해주세요.")
@@ -69,27 +72,26 @@ const MovieSearchList = () => {
         const score = parseInt(ratio) * 10;
         return score;
    }
-    
+
     return (
         <div>
-            <div className='border-b pb-5  flex justify-center flex-col items-center mt-20'>
+            <div className='border-b pb-5  flex justify-center flex-col items-center mt-32'>
                 <SearchForm/>
                 <div className='text-white text-5xl mt-5 mb-4'>검색결과</div>
             </div>
             <div className='overflow-y-scroll flex flex-wrap justify-evenly'>
             {
-                searchResult[0].actor&&searchResult?.map((movie, index) => {
+                searchResult[0]?.actor!==""&&searchResult?.map((movie, index) => {
                     return (
                         <div key={index} className="flex text-black border-solid border relative ml-20 mt-20 bg-white h-48 pb-2 rounded-lg" style={{width:"600px"}}>
                             {movie.image===""||
                             <img src={movie.image} className="w-30 -translate-x-5 -translate-y-8 border border-b"></img>
                             }
                             <div className='px-8'>
-                                {/* 영화 제목이 <b> </b> 태그로 감싸져 있어 정규표현식 사용하여 공백으로 치환 */}
-                                <div className='pt-4 text-2xl'>{movie.title.replace(/<\/?b>/g,"")}</div>
+                                <div className='pt-4 text-2xl'>{movie?.title.replace(/<\/?b>/g,"")}</div>
                                 <div className='text-gray-500'>{movie.subtitle}, {movie.pubDate}</div>
-                                <div>감독 {commons.removeVerticalBar(movie.director)}</div>
-                                <div className=''>{commons.removeVerticalBar(movie.actor, ",")}</div>
+                                <div>감독 {commons.removeVerticalBar(movie?.director,"movie")}</div>
+                                <div className=''>{commons.removeVerticalBar(movie?.actor, "movie",",")}</div>
                                 <span className="absolute">
                                     <div className="star-ratings-fill space-x-2 text-lg" style={{width: `${ratingToPercent(movie.userRating)}%`}}>
                                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -97,11 +99,8 @@ const MovieSearchList = () => {
                                     <div className="star-ratings-base space-x-2 text-lg">
                                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                                     </div>
-            
                                 </span>
                                 <span className='relative left-32 top-0.5 ml-2 font-bold '>{movie.userRating}</span>
-            
-            
                         </div>
                     </div>
                     );
@@ -109,7 +108,7 @@ const MovieSearchList = () => {
             }
                 {
                     isDone?
-                    <h4>마지막 영화입니다.</h4>
+                    <div className='text-white'>마지막 영화입니다.</div>
                     :
                     <div ref={ref}>...loading</div>
                 }

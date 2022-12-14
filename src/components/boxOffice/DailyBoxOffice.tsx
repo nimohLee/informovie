@@ -6,7 +6,7 @@ import Icons from '../../model/Icons';
 const DailyBoxOffice: React.FC<DailyBoxOfficeType> = (movies) => {
     const icons = new Icons();
     return (
-        <div className='mt-4'>
+        <div className='mt-4 '>
             {movies &&
                 movies?.boxOfficeResult?.dailyBoxOfficeList.map((movie) => {
                     return (

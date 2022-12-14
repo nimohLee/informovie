@@ -24,6 +24,7 @@ const communication = {
                 }
             });
             return result;
+            
     },
     async getMovieListByDate(start: string, end: string):AxiosReturnType{
            return await axios.get(ApiUrl.getInstance().getMovieListByDateUrl(start, end));

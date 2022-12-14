@@ -1,8 +1,10 @@
 html{
     background-color: black;
+    
 }
 body{
     background-image: url("./assets/bg.webp");
+    height: 100vh;
     background-size:cover;
     background-attachment: fixed;
 }
