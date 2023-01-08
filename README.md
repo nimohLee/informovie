@@ -1,46 +1,21 @@
-# Getting Started with Create React App
+# Informovie
+네이버 영화 검색 API를 이용한 영화 검색 사이트
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 개발 의도
+TypeScript와 React.js 학습
 
-## Available Scripts
+## 개발 기간
+2022.12.11 ~ 2022.12.14
 
-In the project directory, you can run:
+## 개발 인원
+1인
 
-### `npm start`
+## 기술 스택
+프론트엔드 : React.js , TypeScript
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## UI
+### 홈 화면
+<img width="800" alt="image" src="https://user-images.githubusercontent.com/106662308/211190800-e2e2a9f8-6e8c-4319-880a-52cff586f6ac.png">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 검색기능 시연
+![화면 기록 2023-01-08 오후 7 24 37 mov](https://user-images.githubusercontent.com/106662308/211191195-ddf80f4a-120e-48a7-b130-bb3296a76be7.gif)
